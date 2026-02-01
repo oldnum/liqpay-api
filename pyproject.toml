@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "liqpay-api"
+version = "0.1.2"
+description = "Asynchronous LiqPay SDK"
+readme = "README.md"
+keywords = ["asyncio", "payments", "liqpay", "python-sdk"]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "oldnum", email = "oldnum@ukr.net" },
+]
+dependencies = [
+    "aiohttp>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/liqpay_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
